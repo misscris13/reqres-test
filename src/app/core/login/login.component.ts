@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +9,25 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+    email = new FormControl('');
+    password = new FormControl('');
+
+    constructor(private loginService:LoginService) {
+        
+    }
+
+    ngOnInit() {
+
+    }
+
+    login():void {
+        this.loginService.login(this.email.value, this.password.value).subscribe(
+            res => {
+                if (res) {
+                   console.log("ok");
+                   //router to user list
+                }
+            }
+        );
+    }
 }

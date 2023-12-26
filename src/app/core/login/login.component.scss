@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../../assets/Montserrat-VariableFont_wght.ttf');
+}
+
+$off-white: #F5F5F5;
+
+.general {
+    font-family: 'Montserrat';
+    background-image: url('../../../assets/background.png');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    .left {
+        color: $off-white;
+        width: 50%;
+        height: 100%;
+
+        #welcome {
+            font-size: 11vh;
+            font-weight: bold;
+            width: 70%;
+            margin: 33% auto 0 auto;
+        }
+        
+        #madeBy {
+            font-size: 4vh;
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+    
+    .right {
+        width: 50%;
+        height: 100%;
+        background-color: $off-white;
+        color: black;
+
+        #login {
+            font-size: 6vh;
+            font-weight: bold;
+            margin: 25% 7vw 0 7vw;
+        }
+
+        #form {
+            width: 100%;
+            font-size: 2vh;
+            font-weight: 500;
+            margin-top: 4vh;
+
+            form {
+                margin: 4vh 5vw 0 7vw;
+
+                input {
+                    border: solid black 0px;
+                    border-radius: 10px;
+                    box-shadow: -4px 4px 15px -8px lightgray;
+                    height: 4vh;
+                    width: 80%;
+                    font-size: 2vh;
+                    margin-bottom: 4vh;
+                }
+
+                input::placeholder {
+                    color: lightgray;
+                }
+            }
+
+            * {
+                display:block;
+                padding: 1vh
+            }
+
+            #button {
+                display: flex;
+                border: solid black 0px;
+                border-radius: 10px;
+                margin: 0 auto 0 auto;
+                color: $off-white;
+                background: url('../../../assets/background.png');
+                background-size: 300%;
+                cursor: pointer;
+                width: 5vw;
+                height: 5vh;
+                justify-content: center;
+                text-align: center;
+                font-size: 2.5vh;
+                font-weight: bold;
+            }
+        }
+    }
+}

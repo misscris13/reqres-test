@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="general">
+    <div class="left">
+        <div id="welcome">
+            Welcome back!
+        </div>
+        <div id="madeBy">
+            made by Cristal Campos Abad
+        </div>
+    </div>    
+    <div class="right">
+        <div id="login">
+            Log in
+        </div>
+        <div id="form">
+            <form>
+                <label for="name">email</label>
+                <input type="text" name="name" placeholder="johndoe@email.com" [formControl]="email">
+                <label for="name">password</label>
+                <input type="password" name="password" placeholder="*************" [formControl]="password">
+            </form>
+            <button id="button" (click)="login()">log in</button>
+        </div>
+    </div>
+</div>
