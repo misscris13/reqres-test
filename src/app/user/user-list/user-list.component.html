@@ -1,1 +1,56 @@
-<p>user-list works!</p>
+<div id="header">
+    List of users
+</div>
+
+<div id="list">
+    <div class="userCard" *ngFor="let user of userPage.data" (click)="showUserDetail(user)">
+        <div class="content">
+            <img src={{user?.avatar}}>
+            <div class="data">
+                <div class="name">
+                    {{user?.first_name}}
+                    {{user?.last_name}}
+                </div>
+                <div class="email">
+                    {{user?.email}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="page">
+    <button class="arrow" (click)="previousPage()">
+        <
+    </button>
+
+    page {{actualPage}} of {{userPage.total_pages}}
+
+    <button class="arrow" (click)="nextPage()">
+        >
+    </button>
+</div>
+
+<dialog id="detail">
+    <div id="userDetail">
+        <button id="x" (click)="closeUserDetail()">X</button>
+
+        <div class="userContent">
+            <div class="header">
+                <img src={{userDetail?.avatar}}>
+                <div class="userName">
+                    {{userDetail?.first_name}}
+                    {{userDetail?.last_name}}
+                </div>
+            </div>
+            <div class="userData">
+                ID: {{userDetail?.id}} <br><br>
+                Name: {{userDetail?.first_name}} <br><br>
+                Last name: {{userDetail?.last_name}} <br><br>
+                E-mail: {{userDetail?.email}}
+            </div>
+        </div>
+
+        <button id="close" (click)="closeUserDetail()">close</button>
+    </div>
+</dialog>

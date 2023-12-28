@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Pageable } from '../core/model/page/Pageable';
 import { Observable } from 'rxjs';
-import { UserPage } from '../core/model/page/UserPage';
+import { UserPage } from './model/UserPage';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
 
-    constructor() { }
+    constructor(private http:HttpClient) { }
 
-    getUsers(pageable: Pageable) : Observable<UserPage> {
-        return of
+    getUsers(page: number) : Observable<UserPage> {
+
+        return this.http.get<UserPage>("https://reqres.in/api/users?page=" + page);
     }
 }
