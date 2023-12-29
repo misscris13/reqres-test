@@ -8,17 +8,17 @@ import { SharedService } from './shared.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private sharedService: SharedService, private router: Router) {}
+    constructor(private sharedService: SharedService, private router: Router) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // Check if the user is authenticated
-    if (this.sharedService.getToken()) {
-      return true; // Allow access to the route
-    } else {
-      // Redirect to the login page if not authenticated
-      return this.router.createUrlTree(['/']);
+    canActivate(
+        next: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+        // Check if the user is authenticated
+        if (this.sharedService.getToken()) {
+            return true; // Allow access to the route
+        } else {
+            // Redirect to the login page if not authenticated
+            return this.router.createUrlTree(['/']);
+        }
     }
-  }
 }

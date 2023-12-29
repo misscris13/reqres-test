@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserPage } from '../model/UserPage';
 import { UserService } from '../user.service';
 import { User } from '../model/User';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +15,7 @@ export class UserListComponent {
     actualPage: number;
     userDetail: User;
 
-    constructor(private userService:UserService) {
+    constructor(private userService:UserService, private sharedService:SharedService) {
         
     }
 
@@ -69,5 +70,10 @@ export class UserListComponent {
         
         let dialog: HTMLDialogElement = (document.getElementById("detail") as HTMLDialogElement);
         dialog.close();
+    }
+
+    logout():void {
+
+        this.sharedService.logOut();
     }
 }
