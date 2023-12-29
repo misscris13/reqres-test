@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
     email = new FormControl('');
     password = new FormControl('');
 
-    constructor(private loginService:LoginService, private router:Router) {
+    constructor(private sharedService:SharedService, private router:Router) {
         
     }
 
@@ -22,11 +23,10 @@ export class LoginComponent {
     }
 
     login():void {
-        this.loginService.login(this.email.value, this.password.value).subscribe(
+        this.sharedService.login(this.email.value, this.password.value).subscribe(
             res => {
                 if (res) {
-                   console.log("ok");
-                   //router to user list
+                   this.sharedService.setToken(res)
                    this.router.navigate(["/users"]);
                 }
             }
